@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import LoginScreen from "./LoginScreen";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,7 +10,7 @@ function App() {
   return (
     <>
       <div>
-        <h1>YAY Group 7 Project!</h1>
+        <LoginScreen />
       </div>
     </>
   );

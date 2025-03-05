@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "./LoginScreen";
 import Signup from "./SignupScreen";
-import Dashboard from "./DashboardScreen";
+import Dashboard from "./Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./auth/index.jsx";
 
