@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #eff6ff, #fdb6b6);
+  background: linear-gradient(to bottom, #eff6ff, #f56d6d);
   display: flex;
   align-items: center;
   justify-content: center;
