@@ -8,7 +8,7 @@
 }
 
 .dashboard-content {
-  background-color: white;
+  background-color: rgb(179, 98, 233);
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -23,7 +23,7 @@
 }
 
 .logout-button {
-  background-color: #6b46c1;
+  background-color: #602bdd;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
