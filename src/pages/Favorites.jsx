@@ -1,7 +1,27 @@
 import NavBar from "../components/NavBar";
 import "../css/Favorites.css";
+import { useCarContext } from "../contexts/CarContext";
+import CarCard from "../components/CarCard";
 
 function Favorites() {
+    const {favorites} = useCarContext();
+
+    if (favorites) {
+        return (
+          <div>
+            <NavBar />
+            <div className="favorites">
+              <h2>Your Favorite Cars!</h2>
+              <div className="cars-grid">
+                {favorites.map((car) => (
+                  <CarCard car={car} key={car.id} />
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+    }
+
     return (
     <div>
     <NavBar/>

@@ -7,10 +7,12 @@ import Home from "./pages/Home.jsx";
 import Favorites from "./pages/Favorites.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./auth/index.jsx";
+import { CarProvider } from "./contexts/CarContext.jsx";
 
 
 const App = () => {
   return (
+    <CarProvider>
     <AuthProvider>
       <Router>
         <Routes>
@@ -22,6 +24,7 @@ const App = () => {
         </Routes>
       </Router>
     </AuthProvider>
+    </CarProvider>
   );
 };
 

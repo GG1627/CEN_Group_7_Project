@@ -13,24 +13,24 @@ function Home() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    //PROBLEMATIC CODE HERE!!!!!!!! ALSO CHECK api.js
+    //PROBLEMATIC CODE HERE!!!!!!!! 
 
-    // useEffect(() => {
-    //     const loadPopularCars = async () => {
-    //         try {
-    //             const popularCars = await getPopularCars();
-    //             setCars(popularCars);
-    //         } catch (err) {
-    //             console.log(err);
-    //             setError("Failed to load cars...");
-    //         }
-    //         finally {
-    //             setLoading(false);
-    //         }
-    //     };
+    useEffect(() => {
+        const loadPopularCars = async () => {
+            try {
+                // const popularCars = await getPopularCars();
+                // setCars(popularCars);
+            } catch (err) {
+                console.log(err);
+                setError("Failed to load cars...");
+            }
+            finally {
+                setLoading(false);
+            }
+        };
 
-    //     loadPopularCars();
-    // }, []);
+        loadPopularCars();
+    }, []);
 
 
     const cars = [
@@ -40,9 +40,21 @@ function Home() {
 
     ];
 
-    const handleSearch = (e) => {
+    const handleSearch = async (e) => {
         e.preventDefault()
-        alert(searchQuery)
+        if (!searchQuery.trim()) return
+        if (loading) return
+
+        setLoading(true)
+        try {
+          
+        } catch(err) {
+          console.log(err);
+          setError("Failed to search cars...")
+        } finally {
+          setLoading(false)
+        }
+        
     };
 
     return (
@@ -64,15 +76,15 @@ function Home() {
 
             {error && <div className="error-message">{error}</div>}
 
-          {/* {loading ? (
+          {loading ? (
             <div className="loading">Loading...</div>
-          ) : ( */}
+          ) : (
             <div className="cars-grid">
               {cars.map((car) => (
                 <CarCard car={car} key={car.id} />
               ))}
             </div>
-          {/* )} */}
+          )}
         </div>
       </div>
     );
