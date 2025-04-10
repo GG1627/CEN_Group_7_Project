@@ -1,60 +1,73 @@
+
 import CarCard from "../components/CarCard.jsx";
-import {useState, useEffect} from "react";
-import { searchCars, getPopularCars } from "../services/api.js";
+import {useState, useEffect, useCallback} from "react";
+import { ref, onValue, get } from "firebase/database";
+import { database } from "../firebase/firebaseConfig.js";
 import NavBar from "../components/NavBar.jsx";
 import "../css/Home.css";
 
+
 function Home() {
     const [searchQuery, setSearchQuery] = useState("");
-
-    //PROBLEM!!!!
-    //const [cars, setCars] = useState([]);
-
+    const [cars, setCars] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-
-    //PROBLEMATIC CODE HERE!!!!!!!! 
-
+    const numberOfCarsToShow = 16;
+    
     useEffect(() => {
-        const loadPopularCars = async () => {
-            try {
-                // const popularCars = await getPopularCars();
-                // setCars(popularCars);
-            } catch (err) {
-                console.log(err);
-                setError("Failed to load cars...");
-            }
-            finally {
-                setLoading(false);
-            }
-        };
-
-        loadPopularCars();
+      const carsRef = ref(database);
+      get(carsRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const carsArray = Object.entries(snapshot.val()).map(([id, data]) => ({
+            id,
+            ...data,
+          }));
+          
+          setCars(carsArray.slice(0, numberOfCarsToShow));
+        } else {
+          console.log('No data available');
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+        
     }, []);
 
 
-    const cars = [
-        {id: 1, title: "Toyota", release_date: "2025"},
-        {id: 2, title: "Toyota", release_date: "2025"},
-        {id: 3, title: "Toyota", release_date: "2025"},
+    //PROBLEM!!!
+    const handleSearch = () => {
+    
+      // const debounce = (func, delay) => {
+      //   let timeoutId;
+      //   return (...args) => {
+      //     clearTimeout(timeoutId);
+      //     timeoutId = setTimeout(() => func(...args), delay);
+      //   };
+      // };
 
-    ];
+      // const dealSearch = useCallback(
+      //   debounce((query) => {
+      //     if (query.trim() === "") {
+      //       setSearchQuery([]);
+      //     } else {
+      //       const results = carsArray.filter((item) =>
+      //         item.Manufacturer.toLowerCase().includes(query.toLowerCase())
+      //       );
+      //       setSearchQuery(results);
+      //     }
+      //   }, 300),
+      //   []
+      // );
 
-    const handleSearch = async (e) => {
-        e.preventDefault()
-        if (!searchQuery.trim()) return
-        if (loading) return
+      // useEffect(() => {
+      //   dealSearch(searchQuery);
+      // }, [searchQuery, dealSearch]);
 
-        setLoading(true)
-        try {
-          
-        } catch(err) {
-          console.log(err);
-          setError("Failed to search cars...")
-        } finally {
-          setLoading(false)
-        }
-        
+      // const handleInputChange = (e) => {
+      //   setCars(e.target.value);
+      // };
+
+
     };
 
     return (
@@ -73,18 +86,19 @@ function Home() {
               Search
             </button>
           </form>
+          
 
             {error && <div className="error-message">{error}</div>}
 
-          {loading ? (
+          {/* {loading ? (
             <div className="loading">Loading...</div>
-          ) : (
+          ) : ( */}
             <div className="cars-grid">
               {cars.map((car) => (
                 <CarCard car={car} key={car.id} />
               ))}
             </div>
-          )}
+          {/* )} */}
         </div>
       </div>
     );

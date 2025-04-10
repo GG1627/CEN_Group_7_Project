@@ -22,8 +22,8 @@ function CarCard({car}) {
             </div>
         </div>
         <div className="car-info">
-            <h3>{car.title}</h3>
-            <p>{car.release_date}</p>
+            <h3>{car.Prod_year} {car.Manufacturer} {car.Model}</h3>
+            <p></p>
         </div>
     </div>
 }
