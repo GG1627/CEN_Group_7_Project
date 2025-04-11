@@ -23,7 +23,7 @@ function CarCard({car}) {
         </div>
         <div className="car-info">
             <h3>{car.Prod_year} {car.Manufacturer} {car.Model}</h3>
-            <p></p>
+            <p>${car.Price}</p>
         </div>
     </div>
 }
