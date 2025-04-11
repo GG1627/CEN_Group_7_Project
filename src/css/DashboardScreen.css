@@ -1,6 +1,6 @@
 .dashboard-container {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   position: relative;
   overflow: hidden;
   padding: 2rem;
@@ -113,4 +113,15 @@
 
 .logout-button:hover {
   background-color: #5a60df;
+}
+
+.footerContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.6rem;
+  text-align: center;
+  padding: 1rem;
+  overflow: hidden;
 }

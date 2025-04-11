@@ -70,6 +70,12 @@ const Dashboard = () => {
             Start Exploring
           </button>
         </div>
+        <div className="footerContainer">
+          <h3 className="footerText">
+            © 2025 Gael Garcia, Kevin Nguyen, Alexis Simpson, and Jimmy Joseph.
+            All rights reserved.
+          </h3>
+        </div>
       </div>
     </div>
   );
