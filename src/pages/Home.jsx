@@ -1,4 +1,3 @@
-
 import CarCard from "../components/CarCard.jsx";
 import {useState, useEffect, useCallback} from "react";
 import { ref, onValue, get } from "firebase/database";
@@ -6,14 +5,12 @@ import { database } from "../firebase/firebaseConfig.js";
 import NavBar from "../components/NavBar.jsx";
 import "../css/Home.css";
 
-
-
 function Home() {
     const [searchQuery, setSearchQuery] = useState("");
     const [cars, setCars] = useState([]);
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
     const [numberOfCarsToShow, setNumberOfCarsToShow] = useState(16);
+    const [sortByPrice, setSortByPrice] = useState(null);
 
     //Grabs Realtime Database
     useEffect(() => {
@@ -24,17 +21,14 @@ function Home() {
             id,
             ...data,
           }));
-          //.slice(0, numberOfCarsToShow)
           setCars(carsArray);
         } else {
           console.log('No data available');
         }
       }).catch((error) => {
         console.error(error);
-      });
-        
+      });     
     }, []);
-
 
     //SEARCH FUNCTION
     const handleSearch = (e) => {
@@ -45,8 +39,7 @@ function Home() {
       }
       else if (query.length > 0) { 
         setNumberOfCarsToShow(1000);
-      }
-      
+      } 
     };
 
     const concatenateKeys = (car) => {
@@ -54,7 +47,31 @@ function Home() {
       return combinedKey;
     }
 
+    const handleSortByPrice = () => {
+      if (sortByPrice === null) {
+        setSortByPrice('asc');
+      } else if (sortByPrice === 'asc') {
+        setSortByPrice('desc');
+      } else {
+        setSortByPrice(null);
+      }
+    };
+
+    const filteredArray = cars.filter((car) =>
+      searchQuery.toLowerCase() === '' ? car : concatenateKeys(car).toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const sortedArray = [...filteredArray].sort((a,b) => {
+      if (sortByPrice === 'asc'){
+          return Math.abs(a.Price) - Math.abs(b.Price);
+      } else if (sortByPrice === 'desc') {
+        return Math.abs(b.Price) - Math.abs(a.Price);
+      }
+      return 0;
+      });
+
     console.log(cars);
+    
     //JSX
     return (
       <div>
@@ -68,19 +85,20 @@ function Home() {
               value={searchQuery}
               onChange={handleSearch}
             />
-            {/* <button type="submit" className="search-button">
-              Search
-            </button> */}
+
           </form>
+
+          <button onClick={handleSortByPrice}>
+            Sort by Price:
+            {sortByPrice === 'asc' ? ' Low to High' :
+            sortByPrice === 'desc' ? ' High to Low' :
+            ' Off'}
+          </button>
 
           {error && <div className="error-message">{error}</div>}
 
           <div className="cars-grid">
-            {cars.slice(0, numberOfCarsToShow).filter((car) => {
-              return searchQuery.toLowerCase() === '' ? car : concatenateKeys(car).toLowerCase().includes(searchQuery.toLowerCase())
-              // car.Manufacturer.toLowerCase().includes(searchQuery) 
-              // || car.Model.toString().toLowerCase().includes(searchQuery)
-            }).map((car) => (
+            {sortedArray.slice(0, numberOfCarsToShow).map((car) => (
               <CarCard car={car} key={car.id} />
             ))}
           </div>
