@@ -36,7 +36,23 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {loading ? <p>Loading...</p> : children}
+      {loading ? (
+        <p
+          style={{
+            height: "100vh",
+            width: "100vw",
+            fontSize: "1.5rem",
+            color: "#636bfa",
+            justifyContent: "center",
+            alignContent: "center",
+            textAlign: "center",
+          }}
+        >
+          Loading...
+        </p>
+      ) : (
+        children
+      )}
     </AuthContext.Provider>
   );
 }
