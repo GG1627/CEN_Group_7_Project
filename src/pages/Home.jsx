@@ -49,6 +49,11 @@ function Home() {
       
     };
 
+    const concatenateKeys = (car) => {
+      const combinedKey = `${car.Prod_year} ${car.Manufacturer} ${car.Model}`;
+      return combinedKey;
+    }
+
     console.log(cars);
     //JSX
     return (
@@ -72,8 +77,9 @@ function Home() {
 
           <div className="cars-grid">
             {cars.slice(0, numberOfCarsToShow).filter((car) => {
-              return searchQuery.toLowerCase() === '' ? car : car.Manufacturer.toLowerCase().includes(searchQuery) 
-              || car.Model.toString().toLowerCase().includes(searchQuery)
+              return searchQuery.toLowerCase() === '' ? car : concatenateKeys(car).toLowerCase().includes(searchQuery)
+              // car.Manufacturer.toLowerCase().includes(searchQuery) 
+              // || car.Model.toString().toLowerCase().includes(searchQuery)
             }).map((car) => (
               <CarCard car={car} key={car.id} />
             ))}
