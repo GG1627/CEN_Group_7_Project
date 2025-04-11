@@ -24,7 +24,7 @@ const Dashboard = () => {
     <div>
     <NavBar/>
     <div className="dashboard-container">
-      <h1 className="dashboard-title">CarCompare Dashboard</h1>
+      <h1 className="dashboard-title">CarCost Dashboard</h1>
       <div className="dashboard-content">
         <h2>Welcome, {currentUser?.email}!</h2>
         <button className="logout-button" onClick={handleLogout}>
