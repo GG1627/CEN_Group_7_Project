@@ -14,6 +14,7 @@ function Home() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [numberOfCarsToShow, setNumberOfCarsToShow] = useState(16);
+    const [sortByPrice, setSortByPrice] = useState(null);
 
     //Grabs Realtime Database
     useEffect(() => {
@@ -54,6 +55,29 @@ function Home() {
       return combinedKey;
     }
 
+    const handleSortByPrice = () => {
+      if (sortByPrice === null) {
+        setSortByPrice('asc');
+      } else if (sortByPrice === 'asc') {
+        setSortByPrice('desc');
+      } else {
+        setSortByPrice(null);
+      }
+    };
+
+    const filteredArray = cars.filter((car) =>
+      searchQuery.toLowerCase() === '' ? car : concatenateKeys(car).toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const sortedArray = [...filteredArray].sort((a,b) => {
+      if (sortByPrice === 'asc'){
+          return a.Price - b.Price;
+      } else if (sortByPrice === 'desc') {
+        return b.Price -a.Price;
+      }
+      return 0;
+      });
+
     console.log(cars);
     //JSX
     return (
@@ -73,14 +97,17 @@ function Home() {
             </button> */}
           </form>
 
+          <button onClick={handleSortByPrice}>
+            Sort by Price:
+            {sortByPrice === 'asc' ? ' Low to High' :
+            sortByPrice === 'desc' ? ' High to Low' :
+            ' Off'}
+          </button>
+
           {error && <div className="error-message">{error}</div>}
 
           <div className="cars-grid">
-            {cars.slice(0, numberOfCarsToShow).filter((car) => {
-              return searchQuery.toLowerCase() === '' ? car : concatenateKeys(car).toLowerCase().includes(searchQuery.toLowerCase())
-              // car.Manufacturer.toLowerCase().includes(searchQuery) 
-              // || car.Model.toString().toLowerCase().includes(searchQuery)
-            }).map((car) => (
+            {sortedArray.slice(0, numberOfCarsToShow).map((car) => (
               <CarCard car={car} key={car.id} />
             ))}
           </div>
