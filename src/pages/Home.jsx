@@ -38,11 +38,12 @@ function Home() {
 
     //SEARCH FUNCTION
     const handleSearch = (e) => {
+      const query = e.target.value;
       setSearchQuery(e.target.value);
-      if (searchQuery.length <= 0) {
+      if (query.length === 0) {
         setNumberOfCarsToShow(16);
       }
-      else if (searchQuery.length > 0) { 
+      else if (query.length > 0) { 
         setNumberOfCarsToShow(1000);
       }
       
