@@ -77,7 +77,7 @@ function Home() {
 
           <div className="cars-grid">
             {cars.slice(0, numberOfCarsToShow).filter((car) => {
-              return searchQuery.toLowerCase() === '' ? car : concatenateKeys(car).toLowerCase().includes(searchQuery)
+              return searchQuery.toLowerCase() === '' ? car : concatenateKeys(car).toLowerCase().includes(searchQuery.toLowerCase())
               // car.Manufacturer.toLowerCase().includes(searchQuery) 
               // || car.Model.toString().toLowerCase().includes(searchQuery)
             }).map((car) => (
