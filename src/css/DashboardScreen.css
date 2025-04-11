@@ -1,33 +1,127 @@
 .dashboard-container {
-  min-height: 100vh;
-  background-color: #f0e6ff; /* light purple background */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
   padding: 2rem;
 }
 
-.dashboard-content {
-  background-color: rgb(179, 98, 233);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.dashboard-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url("../components/ScreenBackground.jpg") no-repeat center center;
+  background-size: cover;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.top-section {
   text-align: center;
+  padding-top: 1rem;
 }
 
 .dashboard-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: #4a4a4a;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 0 3rem;
+}
+
+.welcome-section {
+  text-align: left;
+}
+
+.welcome-text {
+  font-size: 4.4rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.username-text {
+  color: #636bfa;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.info-section {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  border: #636bfa 1.5px solid;
+}
+
+.info-text {
+  color: #ffffff;
+  font-size: 1.7rem;
+  line-height: 1.6;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cta-text {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.search-button {
+  background-color: #e50914;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #a3060e;
 }
 
 .logout-button {
-  background-color: #602bdd;
+  position: absolute;
+  top: 1.8rem;
+  right: 2rem;
+  background-color: #636bfa;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 1rem;
+  font-size: 0.7rem;
+}
+
+.logout-button:hover {
+  background-color: #5a60df;
+}
+
+.footerContainer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.6rem;
+  text-align: center;
+  padding: 1rem;
+  overflow: hidden;
 }

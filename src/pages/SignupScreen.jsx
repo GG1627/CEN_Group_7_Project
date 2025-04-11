@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../auth";
 import "../css/SignupScreen.css";
 import { FcGoogle } from "react-icons/fc";
+import { FaLock } from "react-icons/fa";
+import { FaUser } from "react-icons/fa6";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -47,7 +49,7 @@ const Signup = () => {
         <h2 className="title">Create your account</h2>
         {error && <p className="error">{error}</p>}
         <form className="form" onSubmit={handleSignup}>
-          <div>
+          <div className="emailInput">
             <input
               type="email"
               placeholder="Email"
@@ -56,8 +58,9 @@ const Signup = () => {
               required
               className="input"
             />
+            <FaUser className="input-icon" />
           </div>
-          <div>
+          <div className="passwordInput">
             <input
               type="password"
               placeholder="Password"
@@ -66,6 +69,7 @@ const Signup = () => {
               required
               className="input"
             />
+            <FaLock className="input-icon" />
           </div>
           <button type="submit" className="button">
             Sign Up
