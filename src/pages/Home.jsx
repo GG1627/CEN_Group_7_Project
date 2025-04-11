@@ -5,7 +5,7 @@ import { ref, onValue, get } from "firebase/database";
 import { database } from "../firebase/firebaseConfig.js";
 import NavBar from "../components/NavBar.jsx";
 import "../css/Home.css";
-import { data } from "../data.js";
+
 
 
 function Home() {
