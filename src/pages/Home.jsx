@@ -5,6 +5,7 @@ import { ref, onValue, get } from "firebase/database";
 import { database } from "../firebase/firebaseConfig.js";
 import NavBar from "../components/NavBar.jsx";
 import "../css/Home.css";
+import { data } from "../data.js";
 
 
 function Home() {
@@ -12,8 +13,9 @@ function Home() {
     const [cars, setCars] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    const numberOfCarsToShow = 16;
-    
+    const [numberOfCarsToShow, setNumberOfCarsToShow] = useState(16);
+
+    //Grabs Realtime Database
     useEffect(() => {
       const carsRef = ref(database);
       get(carsRef).then((snapshot) => {
@@ -22,8 +24,8 @@ function Home() {
             id,
             ...data,
           }));
-          
-          setCars(carsArray.slice(0, numberOfCarsToShow));
+          //.slice(0, numberOfCarsToShow)
+          setCars(carsArray);
         } else {
           console.log('No data available');
         }
@@ -34,71 +36,47 @@ function Home() {
     }, []);
 
 
-    //PROBLEM!!!
-    const handleSearch = () => {
-    
-      // const debounce = (func, delay) => {
-      //   let timeoutId;
-      //   return (...args) => {
-      //     clearTimeout(timeoutId);
-      //     timeoutId = setTimeout(() => func(...args), delay);
-      //   };
-      // };
-
-      // const dealSearch = useCallback(
-      //   debounce((query) => {
-      //     if (query.trim() === "") {
-      //       setSearchQuery([]);
-      //     } else {
-      //       const results = carsArray.filter((item) =>
-      //         item.Manufacturer.toLowerCase().includes(query.toLowerCase())
-      //       );
-      //       setSearchQuery(results);
-      //     }
-      //   }, 300),
-      //   []
-      // );
-
-      // useEffect(() => {
-      //   dealSearch(searchQuery);
-      // }, [searchQuery, dealSearch]);
-
-      // const handleInputChange = (e) => {
-      //   setCars(e.target.value);
-      // };
-
-
+    //SEARCH FUNCTION
+    const handleSearch = (e) => {
+      setSearchQuery(e.target.value);
+      if (searchQuery.length <= 0) {
+        setNumberOfCarsToShow(16);
+      }
+      else if (searchQuery.length > 0) { 
+        setNumberOfCarsToShow(1000);
+      }
+      
     };
 
+    console.log(cars);
+    //JSX
     return (
       <div>
         <NavBar />
-        <div className="home">
-          <form onSubmit={handleSearch} className="search-form">
+        <div className="home"> 
+          <form className="search-form">
             <input
               type="text"
               placeholder="Search for cars..."
               className="search-input"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={handleSearch}
             />
-            <button type="submit" className="search-button">
+            {/* <button type="submit" className="search-button">
               Search
-            </button>
+            </button> */}
           </form>
-          
 
-            {error && <div className="error-message">{error}</div>}
+          {error && <div className="error-message">{error}</div>}
 
-          {/* {loading ? (
-            <div className="loading">Loading...</div>
-          ) : ( */}
-            <div className="cars-grid">
-              {cars.map((car) => (
-                <CarCard car={car} key={car.id} />
-              ))}
-            </div>
-          {/* )} */}
+          <div className="cars-grid">
+            {cars.slice(0, numberOfCarsToShow).filter((car) => {
+              return searchQuery.toLowerCase() === '' ? car : car.Manufacturer.toLowerCase().includes(searchQuery) 
+              || car.Model.toString().toLowerCase().includes(searchQuery)
+            }).map((car) => (
+              <CarCard car={car} key={car.id} />
+            ))}
+          </div>
         </div>
       </div>
     );
