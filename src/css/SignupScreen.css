@@ -1,0 +1,28 @@
+.loginText {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #747e8b;
+}
+
+.loginLink {
+  margin-left: 0.25rem;
+  color: #e50914;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+  color: #e50914;
+}
+
+.footerContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.6rem;
+  text-align: center;
+  padding: 1rem;
+}
