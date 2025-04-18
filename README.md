@@ -140,5 +140,7 @@ Experience the live app here:
 |------|--------|------|
 | Jimmy Joseph | [@jimmy-joseph](https://github.com/jimmy-joseph) | Lead Developer |
 | Gael Garcia | [@GG1627](https://github.com/GG1627) | Frontend Developer |
+| Kevin Nguyen | [@nguyenkevin3](https://github.com/nguyenkevin3) | Frontend Developer |
+
 
 ---
