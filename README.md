@@ -139,6 +139,6 @@ Experience the live app here:
 | Name | GitHub | Role |
 |------|--------|------|
 | Jimmy Joseph | [@jimmy-joseph](https://github.com/jimmy-joseph) | Lead Developer |
-| Gael Garcia | [@gaelgarcia](https://github.com/gaelgarcia) | Frontend Developer |
+| Gael Garcia | [@GG1627](https://github.com/GG1627) | Frontend Developer |
 
 ---
