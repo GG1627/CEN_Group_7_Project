@@ -126,11 +126,11 @@ Experience the live app here:
 
 > Add screenshots by saving them in a `/screenshots` folder in the root.
 
-![Dashboard](./screenshots/dashboard.png)
-*Main dashboard view*
-
 ![Login](./screenshots/login.png)
 *Firebase authentication login screen*
+
+![Dashboard](./screenshots/dashboard.png)
+*Main dashboard view*
 
 ---
 
