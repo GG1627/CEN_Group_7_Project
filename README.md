@@ -103,7 +103,7 @@ Your app will typically be served at `http://localhost:5173` (or whichever port 
 
 Experience the live app here:
 
-👉 [https://carcost.vercel.app/dashboard](https://carcost.vercel.app/dashboard)
+👉 [https://carcost.vercel.app/dashboard](https://carcost.vercel.app/)
 
 ---
 
