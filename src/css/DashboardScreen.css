@@ -1,9 +1,16 @@
+.dashboard-bg {
+  min-height: 100vh;
+  background-color: black;
+  width: 100%;
+}
+
 .dashboard-container {
   height: 100%;
   width: 100%;
   position: relative;
   overflow: hidden;
   padding: 2rem;
+  z-index: 0;
 }
 
 .dashboard-container::before {
@@ -13,10 +20,15 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: url("../components/ScreenBackground.jpg") no-repeat center center;
+  z-index: -1;
+  pointer-events: none;
+
+  background-color: black;
+  background-image: url("../components/ScreenBackground.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
   filter: blur(10px);
-  z-index: -1;
 }
 
 .top-section {

@@ -22,9 +22,12 @@ const Dashboard = () => {
   };
 
   const emailUsername = currentUser?.email.split("@")[0];
+  const capitalizedUsername = emailUsername
+    ? emailUsername.charAt(0).toUpperCase() + emailUsername.slice(1)
+    : "";
 
   return (
-    <div>
+    <div className="dashboard-bg">
       <NavBar />
       <div className="dashboard-container">
         <button className="logout-button" onClick={handleLogout}>
@@ -50,7 +53,7 @@ const Dashboard = () => {
             <h2 className="welcome-text">
               Welcome back,
               <br />
-              <span className="username-text">{emailUsername}!</span>
+              <span className="username-text">{capitalizedUsername}!</span>
             </h2>
           </motion.div>
 
