@@ -129,8 +129,8 @@ Experience the live app here:
 ![Login](./screenshots/login.png)
 *Firebase authentication login screen*
 
-![Dashboard](./screenshots/dashboard.png)
-*Main dashboard view*
+![Dashboard](./screenshots/home.png)
+*Main Home page view*
 
 ---
 
