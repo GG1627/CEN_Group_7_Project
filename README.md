@@ -38,6 +38,10 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Usage](#usage)
+- [Live Demo](#live-demo)
+- [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
+- [Contributors](#contributors)
 
 ---
 
@@ -92,5 +96,49 @@ npm run dev
 ```
 
 Your app will typically be served at `http://localhost:5173` (or whichever port Vite configures).
+
+---
+
+## 🌍 Live Demo
+
+Experience the live app here:
+
+👉 [https://carcost.vercel.app/dashboard](https://carcost.vercel.app/dashboard)
+
+---
+
+## 🛠️ Technologies Used
+
+<p>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" />
+  <img src="https://img.shields.io/badge/PostCSS-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/.env-ECD53F?style=for-the-badge" />
+</p>
+
+---
+
+## 📸 Screenshots
+
+> Add screenshots by saving them in a `/screenshots` folder in the root.
+
+![Dashboard](./screenshots/dashboard.png)
+*Main dashboard view*
+
+![Login](./screenshots/login.png)
+*Firebase authentication login screen*
+
+---
+
+## 👨‍💻 Contributors
+
+| Name | GitHub | Role |
+|------|--------|------|
+| Jimmy Joseph | [@jimmy-joseph](https://github.com/jimmy-joseph) | Lead Developer |
+| Gael Garcia | [@gaelgarcia](https://github.com/gaelgarcia) | Frontend Developer |
 
 ---
