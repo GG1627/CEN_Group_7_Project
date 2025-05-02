@@ -1,7 +1,6 @@
+# **CAR COST**
 
-# **CEN_GROUP_7_PROJECT**
-
-*Empowering seamless connections for smarter user experiences.*
+_Empowering seamless connections for smarter user experiences._
 
 <div align="center">
 
@@ -38,7 +37,7 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Usage](#usage)
-- [Live Demo](#live-demo)
+- [Deployed Site](#live-demo)
 - [Technologies Used](#technologies-used)
 - [Screenshots](#screenshots)
 - [Contributors](#contributors)
@@ -47,7 +46,7 @@
 
 ## 📖 Overview
 
-**CEN_Group_7_Project** is a collaborative web application designed to provide a seamless user experience using modern web technologies. This project integrates front-end and back-end tools to streamline development, deployment, and performance.
+**Car Cost** is a web application that helps users explore and compare car prices with ease. Built using modern web technologies, it offers a smooth user experience and features like car search, price sorting, and the ability to save favorites. The project is designed with both functionality and performance in mind, making it a reliable tool for anyone looking to make informed car-buying decisions.
 
 ---
 
@@ -103,45 +102,33 @@ Your app will typically be served at `http://localhost:5173` (or whichever port 
 
 Experience the live app here:
 
-👉 [https://carcost.vercel.app/dashboard](https://carcost.vercel.app/)
-
----
-
-## 🛠️ Technologies Used
-
-<p>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
-  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" />
-  <img src="https://img.shields.io/badge/PostCSS-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white" />
-  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" />
-  <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
-  <img src="https://img.shields.io/badge/.env-ECD53F?style=for-the-badge" />
-</p>
+👉 [https://carcost.vercel.app/](https://carcost.vercel.app/)
 
 ---
 
 ## 📸 Screenshots
 
-> Add screenshots by saving them in a `/screenshots` folder in the root.
-
 ![Login](./screenshots/login.png)
-*Firebase authentication login screen*
+_Firebase authentication login screen_
 
 ![Dashboard](./screenshots/home.png)
-*Main Home page view*
+_Main Home page view_
+
+![Search](./screenshots/search.png)
+_Search page view_
+
+![Favorites](./screenshots/favorites.png)
+_Favorites page view_
 
 ---
 
 ## 👨‍💻 Contributors
 
-| Name | GitHub | Role |
-|------|--------|------|
-| Jimmy Joseph | [@jimmy-joseph](https://github.com/jimmy-joseph) | Lead Developer |
-| Gael Garcia | [@GG1627](https://github.com/GG1627) | Frontend Developer |
-| Kevin Nguyen | [@nguyenkevin3](https://github.com/nguyenkevin3) | Frontend Developer |
+| Name           | GitHub                                             | Role               |
+| -------------- | -------------------------------------------------- | ------------------ |
+| Jimmy Joseph   | [@jimmy-joseph](https://github.com/jimmy-joseph)   | Lead Developer     |
+| Gael Garcia    | [@GG1627](https://github.com/GG1627)               | Frontend Developer |
+| Kevin Nguyen   | [@nguyenkevin3](https://github.com/nguyenkevin3)   | Frontend Developer |
 | Alexis Simpson | [@alexissimpson](https://github.com/alexissimpson) | Frontend Developer |
-
 
 ---
